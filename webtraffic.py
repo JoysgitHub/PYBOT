@@ -9,9 +9,11 @@ from  fake_useragent import UserAgent
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-urlList = [ "https://cw2-student.infinityfreeapp.com/index.php",
-        "https://cw2-student.infinityfreeapp.com/admin/index.php"]
+#Urls to visit
+urlList = [ "https://<website>",
+        "https://<website>"]
 
+#Elite proxies
 proxyList = [
 'http://34.126.125.90:8080',
 'http://8.219.97.248:80',
@@ -29,6 +31,7 @@ proxyList = [
 'http://116.203.49.36:80'
 ]
 
+#Test proxie
 def getProxy():
         loop = True
         while loop:
@@ -52,7 +55,7 @@ def getProxy():
 
 
 
-
+#Send get request
 def webBot():
     ua = UserAgent(browsers=["chrome", "edge", "firefox", "safari"])
     total = 0
@@ -64,6 +67,7 @@ def webBot():
         try:     
             user_agent = {'User-Agent': str(ua.random)}
             url = random.choice(urlList)
+            #Change time to increase or decrease traffic
             ranTime = random.randint(1000, 5400)
             now = datetime.now()
             ip = getProxy()
